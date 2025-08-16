@@ -1630,7 +1630,7 @@ header.main-header .header-sticky.active{
 
 .our-program{
 	position: relative;
-	background-image: linear-gradient(180deg, transparent 80%, var(--white-color) 20%), url(../images/our-program-bg-image.jpg);
+	background-image: linear-gradient(180deg, transparent 80%, var(--white-color) 20%), url(../images/about-img-1.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -3460,7 +3460,7 @@ header.main-header .header-sticky.active{
 
 .sidebar-cta-box{
 	position: relative;
-	background-image: url(../images/sidebar-cta-bg-img.jpg);
+	background-image: url(../images/post-2.webp);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
