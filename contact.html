@@ -175,7 +175,10 @@
                 <div class="col-lg-6 order-lg-1 order-2">
                     <!-- Google Map Start -->
                     <div class="google-map-iframe">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96737.10562045308!2d-74.08535042841811!3d40.739265258395164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1703158537552!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d425639.9182134821!2d72.42749954250777!3d22.92851737365083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e5b6bd0f115d3%3A0xbc925e6ee72ece24!2sLive%20Life%20Rehab%20Centre%20%7C%20Best%20Premium%20Rehabilitation%20%26%20De-Addiction%20Center%20in%20Gujarat%20India%20%7C%20Nasha%20Mukti%20Kendra%20in%20Gujarat!5e1!3m2!1sen!2sin!4v1755410203131!5m2!1sen!2sin"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <!-- Google Map End -->
                 </div>
@@ -186,41 +189,40 @@
                         <!-- Section Title Start -->
                         <div class="section-title">
                             <h3 class="wow fadeInUp">contact us</h3>
-                            <h2 class="text-anime-style-2" data-cursor="-opaque">Get in to touch</h2>
+                            <h2 class="text-anime-style-2" data-cursor="-opaque">Get in touch</h2>
                         </div>
                         <!-- Section Title End -->
 
                         <div class="contact-form">
-                            <form id="contactForm" action="#" method="POST" data-toggle="validator" class="wow fadeInUp" data-wow-delay="0.2s">
-                                <div class="row">                                
+                            <form id="contactForm" onsubmit="sendToWhatsApp(event)">
+                                <div class="row">
                                     <div class="form-group col-md-6 mb-4">
-                                        <input type="text" name="fname" class="form-control" id="fname" placeholder="First name" required>
-                                        <div class="help-block with-errors"></div>
+                                        <input type="text" name="fname" class="form-control" id="fname"
+                                            placeholder="First name" required>
                                     </div>
-    
+
                                     <div class="form-group col-md-6 mb-4">
-                                        <input type="text" name="lname" class="form-control" id="lname" placeholder="Last name" required>
-                                        <div class="help-block with-errors"></div>
+                                        <input type="text" name="lname" class="form-control" id="lname"
+                                            placeholder="Last name" required>
                                     </div>
-    
+
                                     <div class="form-group col-md-12 mb-4">
-                                        <input type="email" name ="email" class="form-control" id="email" placeholder="Enter your e-mail" required>
-                                        <div class="help-block with-errors"></div>
+                                        <input type="email" name="email" class="form-control" id="email"
+                                            placeholder="Enter your e-mail" required>
                                     </div>
-    
+
                                     <div class="form-group col-md-12 mb-4">
-                                        <input type="text" name="phone" class="form-control" id="phone" placeholder="Enter your phone no." required>
-                                        <div class="help-block with-errors"></div>
+                                        <input type="text" name="phone" class="form-control" id="phone"
+                                            placeholder="Enter your phone no." required>
                                     </div>
-    
+
                                     <div class="form-group col-md-12 mb-5">
-                                        <textarea name="message" class="form-control" id="message" rows="4" placeholder="Write message"></textarea>
-                                        <div class="help-block with-errors"></div>
+                                        <textarea name="message" class="form-control" id="message" rows="4"
+                                            placeholder="Write message"></textarea>
                                     </div>
-    
+
                                     <div class="col-md-12">
                                         <button type="submit" class="btn-default"><span>send message</span></button>
-                                        <div id="msgSubmit" class="h3 hidden"></div>
                                     </div>
                                 </div>
                             </form>
@@ -232,6 +234,33 @@
         </div>
     </div>
     <!-- Contact Form Section End -->
+
+    <script>
+        function sendToWhatsApp(event) {
+            event.preventDefault(); // stop form from refreshing
+
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let message = document.getElementById("message").value;
+
+            // Your WhatsApp Number with country code (India +91)
+            let whatsappNumber = "918693054000";
+
+            // Encode message for URL
+            let url = "https://wa.me/" + whatsappNumber + "?text="
+                + "*New Contact Form Submission*%0A"
+                + "👤 Name: " + encodeURIComponent(fname + " " + lname) + "%0A"
+                + "📧 Email: " + encodeURIComponent(email) + "%0A"
+                + "📞 Phone: " + encodeURIComponent(phone) + "%0A"
+                + "💬 Message: " + encodeURIComponent(message);
+
+            // Open WhatsApp
+            window.open(url, '_blank').focus();
+        }
+    </script>
+
 
     <!-- Main Footer Section Start -->
     <footer class="main-footer">
@@ -371,7 +400,7 @@
     <script src="js/jquery.waypoints.min.js"></script>
     <script src="js/jquery.counterup.min.js"></script>
     <!-- Isotop js file -->
-	<script src="js/isotope.min.js"></script>
+    <script src="js/isotope.min.js"></script>
     <!-- Magnific js file -->
     <script src="js/jquery.magnific-popup.min.js"></script>
     <!-- SmoothScroll -->
